@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshat Sharma | AI/ML & Remote Sensing Researcher</title>
+    <meta name="description"
+        content="Portfolio of Akshat Sharma — AI/ML researcher specializing in satellite imagery, remote sensing, phenology-aware modeling, and environmental intelligence.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <a href="index.html" class="nav-logo">
+            <span class="logo-bracket">&lt;</span>AS<span class="logo-bracket">/&gt;</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="#home" class="nav-link active" data-section="home">Home</a>
+            <a href="#about" class="nav-link" data-section="about">About</a>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+            <a href="#research" class="nav-link" data-section="research">Research</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting animate-in">
+                    <span class="wave">👋</span> Hello, I'm
+                </p>
+                <h1 class="hero-name animate-in">
+                    <span class="name-line">Akshat</span>
+                    <span class="name-line gradient-text">Sharma</span>
+                </h1>
+                <div class="hero-typewriter animate-in">
+                    <span class="typewriter-prefix">I build </span>
+                    <span class="typewriter-text" id="typewriter"></span>
+                    <span class="typewriter-cursor">|</span>
+                </div>
+                <p class="hero-description animate-in">
+                    AI/ML researcher focused on satellite imagery, remote sensing, and phenology-aware modeling. I build
+                    reproducible ML pipelines for agriculture, environmental monitoring, and geospatial intelligence.
+                </p>
+                <div class="hero-cta animate-in">
+                    <a href="#research" class="btn btn-primary">
+                        <span>View Research</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Get In Touch</span>
+                    </a>
+                </div>
+                <div class="hero-socials animate-in">
+                    <a href="https://github.com/akshat131211/" target="_blank" class="social-link" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/akshat-sharma13/" target="_blank" class="social-link"
+                        aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="mailto:akshatai1312@gmail.com" class="social-link" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"
+                            height="22">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual animate-in">
+                <!-- Animated abstract satellite/data graphic instead of profile image -->
+                <div class="hero-globe-container">
+                    <div class="globe-glow"></div>
+                    <div class="orbit orbit-1">
+                        <div class="satellite sat-1">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                height="20">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="orbit orbit-2">
+                        <div class="satellite sat-2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="16"
+                                height="16">
+                                <circle cx="12" cy="12" r="10" />
+                                <path
+                                    d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="orbit orbit-3">
+                        <div class="satellite sat-3">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14"
+                                height="14">
+                                <path d="M17 8l4 4-4 4M7 16l-4-4 4-4M14 4l-4 16" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="globe-core">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" width="60"
+                            height="60">
+                            <circle cx="12" cy="12" r="10" opacity="0.3" />
+                            <path d="M2 12h20" opacity="0.2" />
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                                opacity="0.2" />
+                            <circle cx="12" cy="12" r="3" fill="currentColor" opacity="0.4" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="floating-badge badge-1">
+                    <span class="badge-icon">🛰️</span>
+                    <span class="badge-text">Remote Sensing</span>
+                </div>
+                <div class="floating-badge badge-2">
+                    <span class="badge-icon">🧠</span>
+                    <span class="badge-text">Deep Learning</span>
+                </div>
+                <div class="floating-badge badge-3">
+                    <span class="badge-icon">🌍</span>
+                    <span class="badge-text">Earth Observation</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Who I Am</span>
+                <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="about-content-full reveal-up">
+                <div class="about-intro">
+                    <h3 class="about-heading">AI/ML Researcher & Remote Sensing Engineer 🇮🇳</h3>
+                    <p class="about-text">
+                        I'm a machine learning researcher focused on satellite imagery analysis, remote sensing, and
+                        agricultural intelligence. My work sits at the intersection of deep learning, geospatial data,
+                        and environmental science — building models that extract actionable insights from multi-sensor
+                        Earth observation data.
+                    </p>
+                    <p class="about-text">
+                        I specialize in designing reproducible ML benchmarks, phenology-aware feature engineering from
+                        Sentinel-2, Sentinel-1, and Landsat-8 data, and implementing custom neural architectures
+                        including genetic-algorithm-optimized networks and transformer-based sequence models. I care
+                        deeply about honest evaluation, strict no-leak protocols, and producing results that hold up
+                        under scrutiny.
+                    </p>
+                </div>
+                <div class="about-focus-areas">
+                    <div class="focus-item">
+                        <div class="focus-icon">🛰️</div>
+                        <h4>Satellite Image Analysis</h4>
+                        <p>Multi-sensor feature engineering from Sentinel-2, Sentinel-1, and Landsat-8 for vegetation
+                            indices, phenology, and change detection.</p>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">🧠</div>
+                        <h4>ML & Deep Learning</h4>
+                        <p>Custom PyTorch architectures including GA-optimized ANNs, phenology-aware transformers,
+                            teacher distillation, and ensemble methods.</p>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">🌾</div>
+                        <h4>Agricultural Intelligence</h4>
+                        <p>Crop recommendation, phenology modeling, and agronomic feature integration under strict
+                            no-leak evaluation frameworks.</p>
+                    </div>
+                    <div class="focus-item">
+                        <div class="focus-icon">🌍</div>
+                        <h4>Environmental Monitoring</h4>
+                        <p>Satellite-based environmental auditing, land-use change detection, atmospheric pollution
+                            tracking, and EV lifecycle assessment.</p>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="2">0</span>
+                        <span class="stat-label">Active Research Papers</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="8">0</span>
+                        <span class="stat-label">ML Models Benchmarked</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="3">0</span>
+                        <span class="stat-label">Satellite Platforms Used</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Technical Stack</span>
+                <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal-up">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"
+                                height="28">
+                                <path
+                                    d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z" />
+                                <circle cx="12" cy="15" r="2" />
+                            </svg>
+                        </div>
+                        <h3>Machine Learning</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item"><span class="skill-dot"></span>PyTorch</div>
+                        <div class="skill-item"><span class="skill-dot"></span>TensorFlow</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Scikit-learn</div>
+                        <div class="skill-item"><span class="skill-dot"></span>XGBoost / LightGBM / CatBoost</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Genetic Algorithms</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Transformer Architectures</div>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up" style="--delay: 0.1s">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"
+                                height="28">
+                                <circle cx="12" cy="12" r="10" />
+                                <path
+                                    d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                            </svg>
+                        </div>
+                        <h3>Remote Sensing</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item"><span class="skill-dot"></span>Sentinel-2 / Sentinel-1</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Landsat-8</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Sentinel-5P TROPOMI</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Google Earth Engine</div>
+                        <div class="skill-item"><span class="skill-dot"></span>QGIS</div>
+                        <div class="skill-item"><span class="skill-dot"></span>NDVI / EVI / NDWI / NBR</div>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up" style="--delay: 0.2s">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"
+                                height="28">
+                                <path d="M17 8l4 4-4 4M7 16l-4-4 4-4M14 4l-4 16" />
+                            </svg>
+                        </div>
+                        <h3>Programming</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item"><span class="skill-dot"></span>Python</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Pandas / NumPy</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Matplotlib / Seaborn</div>
+                        <div class="skill-item"><span class="skill-dot"></span>JavaScript</div>
+                        <div class="skill-item"><span class="skill-dot"></span>HTML / CSS</div>
+                        <div class="skill-item"><span class="skill-dot"></span>SQL</div>
+                    </div>
+                </div>
+                <div class="skill-category reveal-up" style="--delay: 0.3s">
+                    <div class="skill-category-header">
+                        <div class="skill-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"
+                                height="28">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                            </svg>
+                        </div>
+                        <h3>Tools & Infrastructure</h3>
+                    </div>
+                    <div class="skill-items">
+                        <div class="skill-item"><span class="skill-dot"></span>Git / GitHub</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Linux</div>
+                        <div class="skill-item"><span class="skill-dot"></span>NVIDIA CUDA / RTX 4050</div>
+                        <div class="skill-item"><span class="skill-dot"></span>Jupyter Notebooks</div>
+                        <div class="skill-item"><span class="skill-dot"></span>VS Code</div>
+                        <div class="skill-item"><span class="skill-dot"></span>LaTeX</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Projects Section -->
+    <section id="research" class="section research-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Research & Projects</span>
+                <h2 class="section-title">Featured <span class="gradient-text">Research</span></h2>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Project 1: Crop Recommendation -->
+            <div class="research-project reveal-up" id="project-crop">
+                <div class="research-project-header">
+                    <div class="research-status">
+                        <span class="status-badge status-active">Paper In Progress</span>
+                        <span class="research-date">2026 — Present</span>
+                    </div>
+                    <h3 class="research-title">Phenology-Aware Crop Recommendation with GA-ANN and PhaT Under Strict
+                        No-Leak Evaluation</h3>
+                    <p class="research-hero-summary">
+                        A reproducible crop recommendation benchmark integrating satellite-derived phenology features
+                        with genetic-algorithm-optimized neural networks and a custom phenology-aware transformer —
+                        evaluated under a strict group-disjoint, no-leak protocol against eight baseline models.
+                    </p>
+                </div>
+
+                <div class="research-body">
+                    <div class="research-grid">
+                        <!-- Overview -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 16v-4M12 8h.01" />
+                                </svg>
+                                Overview
+                            </h4>
+                            <p>This project builds a crop recommendation benchmark and prediction pipeline using
+                                agronomic tabular features and satellite-derived phenology from the SICKLE dataset. The
+                                core contribution is a rigorous, reproducible evaluation framework that avoids the data
+                                leakage and inflated metrics common in agricultural ML literature.</p>
+                        </div>
+
+                        <!-- Problem & Motivation -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <path
+                                        d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                                </svg>
+                                Problem & Motivation
+                            </h4>
+                            <p>Many agricultural ML results are inflated by data leakage or unrealistic evaluation
+                                setups. This project focuses on reproducible benchmarking, phenology-aware feature
+                                integration from multiple satellite platforms, and fair comparison across classical ML
+                                and deep learning approaches.</p>
+                        </div>
+
+                        <!-- Dataset & Protocol -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                                    <path d="M8 21h8M12 17v4" />
+                                </svg>
+                                Dataset & No-Leak Protocol
+                            </h4>
+                            <p>Built on the SICKLE dataset (<code>sickle_dataset-002</code>) with multimodal inputs:
+                                agronomic/context tabular features, engineered phenology from Sentinel-2, Sentinel-1,
+                                and Landsat-8, temporal sequence tensors, and optional pretrained UTAE-derived teacher
+                                features.</p>
+                            <div class="protocol-list">
+                                <div class="protocol-item"><span class="protocol-check">✓</span> Group-disjoint split by
+                                    PLOT_ID</div>
+                                <div class="protocol-item"><span class="protocol-check">✓</span> Dropped leakage-prone
+                                    columns (VARIETY, PADDY_BIN)</div>
+                                <div class="protocol-item"><span class="protocol-check">✓</span> No synthetic data (no
+                                    SMOTE, no GANs)</div>
+                                <div class="protocol-item"><span class="protocol-check">✓</span> Consistent split policy
+                                    across all models</div>
+                            </div>
+                        </div>
+
+                        <!-- Modeling Approach -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                </svg>
+                                Modeling Approach
+                            </h4>
+                            <div class="model-cards">
+                                <div class="model-card">
+                                    <h5>GA-ANN</h5>
+                                    <p>A PyTorch-based MLP (<code>GAMLP</code>) whose architecture and training
+                                        hyperparameters are optimized by a custom genetic algorithm. Final predictions
+                                        use a top-K ensemble of best GA candidates, with tree-guided distillation and
+                                        appended out-of-fold teacher-probability features.</p>
+                                </div>
+                                <div class="model-card">
+                                    <h5>PhaT</h5>
+                                    <p>Phenology-aware Transformer with a temporal encoder over phenology sequences,
+                                        static tabular branch, day-of-year embedding, patch projection, auxiliary
+                                        multitask heads, teacher distillation from strong tabular models, and a static
+                                        shortcut classification head for robustness.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Results -->
+                        <div class="research-block research-block-wide">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                                </svg>
+                                Latest 5-Seed Results
+                            </h4>
+                            <p class="results-source">Source: <code>outputs/ga_distill_5seed_v1</code></p>
+                            <div class="results-table-wrapper">
+                                <table class="results-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Model</th>
+                                            <th>Accuracy (%)</th>
+                                            <th>Macro-F1 (%)</th>
+                                            <th>Weighted-F1 (%)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="highlight-row">
+                                            <td><strong>CatBoost</strong></td>
+                                            <td>63.99 ± 5.17</td>
+                                            <td>—</td>
+                                            <td>—</td>
+                                        </tr>
+                                        <tr class="model-row">
+                                            <td><strong>GA-ANN</strong><span class="model-tag">Ours</span></td>
+                                            <td>62.73 ± 5.43</td>
+                                            <td>20.25 ± 3.16</td>
+                                            <td>61.84 ± 4.84</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Random Forest</td>
+                                            <td>62.57 ± 4.03</td>
+                                            <td>—</td>
+                                            <td>—</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SVM-RBF</td>
+                                            <td>62.56 ± 4.45</td>
+                                            <td>—</td>
+                                            <td>—</td>
+                                        </tr>
+                                        <tr>
+                                            <td>LightGBM</td>
+                                            <td>62.54 ± 5.90</td>
+                                            <td>—</td>
+                                            <td>—</td>
+                                        </tr>
+                                        <tr>
+                                            <td>XGBoost</td>
+                                            <td>62.51 ± 4.21</td>
+                                            <td>—</td>
+                                            <td>—</td>
+                                        </tr>
+                                        <tr class="model-row">
+                                            <td><strong>PhaT</strong><span class="model-tag">Ours</span></td>
+                                            <td>55.27 ± 3.64</td>
+                                            <td>18.93 ± 5.52</td>
+                                            <td>53.01 ± 4.35</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Interpretation -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <path
+                                        d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2zM22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                                </svg>
+                                Interpretation
+                            </h4>
+                            <p>GA-ANN edges several strong tree baselines (LightGBM +0.19pp, Random Forest +0.16pp,
+                                XGBoost +0.22pp) on mean accuracy. However, CatBoost remains the strongest baseline at
+                                63.99%. The margins between GA-ANN and the tree baselines are small and not
+                                statistically significant over 5 seeds (Wilcoxon p ≥ 0.0625). PhaT remains below the
+                                strongest tree baselines but demonstrates the viability of sequence-based phenology
+                                modeling. All results reflect honest, conservative evaluation.</p>
+                        </div>
+
+                        <!-- Key Takeaways -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg>
+                                Key Takeaways
+                            </h4>
+                            <ul class="takeaway-list">
+                                <li>Strict no-leak evaluation reveals realistic performance bounds — most models cluster
+                                    in the 62–64% accuracy range on this challenging dataset.</li>
+                                <li>GA-ANN achieves competitive accuracy through evolutionary architecture search
+                                    without manual hyperparameter tuning.</li>
+                                <li>Teacher distillation and probability-feature fusion provide measurable but modest
+                                    improvements.</li>
+                                <li>Rigorous evaluation methodology matters more than marginal accuracy gains.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack -->
+                    <div class="research-tech">
+                        <span>PyTorch</span>
+                        <span>Genetic Algorithm</span>
+                        <span>Transformers</span>
+                        <span>Sentinel-2</span>
+                        <span>Sentinel-1</span>
+                        <span>Landsat-8</span>
+                        <span>Scikit-learn</span>
+                        <span>XGBoost</span>
+                        <span>CatBoost</span>
+                        <span>LightGBM</span>
+                        <span>Pandas</span>
+                        <span>NVIDIA RTX 4050</span>
+                    </div>
+
+                    <!-- Resume Bullets -->
+                    <div class="research-resume">
+                        <h4>Resume Highlights</h4>
+                        <ul>
+                            <li>Designed and implemented a strict group-disjoint, no-leak evaluation framework for crop
+                                recommendation, benchmarking 8+ models across 5 seeds with paired statistical tests.
+                            </li>
+                            <li>Built a PyTorch-based GA-ANN with evolutionary architecture search, top-K ensembling,
+                                and teacher-probability feature fusion, achieving accuracy competitive with CatBoost and
+                                XGBoost.</li>
+                            <li>Engineered multi-sensor phenology features (NDVI, EVI, NDWI, VV/VH ratios, NBR) from
+                                Sentinel-2, Sentinel-1, and Landsat-8 satellite data for crop classification.</li>
+                            <li>Developed PhaT, a phenology-aware transformer integrating temporal sequence encoding,
+                                day-of-year embeddings, and auxiliary multitask heads with teacher distillation.</li>
+                            <li>Generated paper-ready benchmark tables, statistical comparison reports, and reproducible
+                                experiment artifacts on an RTX 4050 GPU setup.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: EV Environmental Auditing -->
+            <div class="research-project reveal-up" id="project-ev" style="--delay: 0.15s; margin-top: 60px;">
+                <div class="research-project-header">
+                    <div class="research-status">
+                        <span class="status-badge status-active">Ongoing Research</span>
+                        <span class="research-date">2026 — Present</span>
+                    </div>
+                    <h3 class="research-title">Seeing the Invisible: Satellite-Based Environmental Auditing of the
+                        Electric Vehicle Life Cycle</h3>
+                    <p class="research-hero-summary">
+                        A dynamic, data-driven framework leveraging multi-sensor satellite data to monitor the real
+                        environmental impact of electric vehicles across mining, manufacturing, energy generation, and
+                        disposal stages — replacing static lifecycle assessments with real-time Earth observation.
+                    </p>
+                </div>
+
+                <div class="research-body">
+                    <div class="research-grid">
+                        <!-- Overview -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 16v-4M12 8h.01" />
+                                </svg>
+                                Overview
+                            </h4>
+                            <p>While EVs are widely considered a sustainable alternative to traditional vehicles, their
+                                environmental footprint extends beyond zero tailpipe emissions. This project explores a
+                                next-generation approach using satellite-based monitoring systems to evaluate the true
+                                environmental cost across the entire EV lifecycle.</p>
+                        </div>
+
+                        <!-- Motivation -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <path
+                                        d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                                </svg>
+                                Motivation
+                            </h4>
+                            <p>Traditional static Life Cycle Assessments (LCA) often underestimate the upstream
+                                environmental impacts of EV supply chains. This project replaces static assumptions with
+                                real-time satellite observations, enabling transparent, verifiable, and policy-relevant
+                                environmental intelligence.</p>
+                        </div>
+
+                        <!-- Multi-Sensor Framework -->
+                        <div class="research-block research-block-wide">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                                </svg>
+                                Dual-Pipeline Satellite Framework
+                            </h4>
+                            <div class="model-cards">
+                                <div class="model-card">
+                                    <h5>Land Analysis Pipeline</h5>
+                                    <p>Integrates Landsat and Sentinel-2 optical data with SAR radar to detect mining
+                                        expansion, deforestation, and water resource depletion using satellite imagery
+                                        and GIS tools.</p>
+                                </div>
+                                <div class="model-card">
+                                    <h5>Atmospheric Analysis Pipeline</h5>
+                                    <p>Monitors pollutants like NO₂ and SO₂ using Sentinel-5P TROPOMI and Aura OMI data
+                                        to estimate emissions from power plants and industrial processes linked to EV
+                                        manufacturing.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- What's Measured -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <path d="M18 20V10M12 20V4M6 20v-6" />
+                                </svg>
+                                Dynamic Impact Assessment
+                            </h4>
+                            <div class="protocol-list">
+                                <div class="protocol-item"><span class="protocol-check">📡</span> Mining footprint
+                                    expansion tracking</div>
+                                <div class="protocol-item"><span class="protocol-check">💧</span> Water resource
+                                    depletion monitoring</div>
+                                <div class="protocol-item"><span class="protocol-check">🌫️</span> Air pollution trend
+                                    analysis</div>
+                                <div class="protocol-item"><span class="protocol-check">⚡</span> Grid-based emissions
+                                    from EV charging</div>
+                            </div>
+                        </div>
+
+                        <!-- Case Study -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path
+                                        d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                                </svg>
+                                Case Study: Global vs India
+                            </h4>
+                            <p>Compared EV adoption and environmental impacts across regions (India, China, EU, USA,
+                                MENA). Findings highlight how grid carbon intensity significantly influences EV
+                                sustainability — regions with carbon-intensive grids like India may see limited climate
+                                benefits from EV adoption.</p>
+                        </div>
+
+                        <!-- Key Insights -->
+                        <div class="research-block">
+                            <h4>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="20"
+                                    height="20">
+                                    <path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                </svg>
+                                Key Insights
+                            </h4>
+                            <ul class="takeaway-list">
+                                <li>EVs shift emissions upstream rather than eliminating them — mining, refining, and
+                                    grid generation carry significant environmental costs.</li>
+                                <li>Satellite data reveals hidden environmental costs often underestimated in
+                                    traditional LCA models.</li>
+                                <li>Real-time monitoring enables transparent, verifiable, and policy-relevant
+                                    sustainability insights.</li>
+                                <li>The long-term vision is automated environmental intelligence systems for
+                                    policymakers and researchers.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Tech Stack -->
+                    <div class="research-tech">
+                        <span>Google Earth Engine</span>
+                        <span>QGIS</span>
+                        <span>Python</span>
+                        <span>Landsat</span>
+                        <span>Sentinel-2</span>
+                        <span>Sentinel-5P TROPOMI</span>
+                        <span>Aura OMI</span>
+                        <span>SAR</span>
+                        <span>GIS</span>
+                    </div>
+
+                    <!-- Resume Bullets -->
+                    <div class="research-resume">
+                        <h4>Resume Highlights</h4>
+                        <ul>
+                            <li>Designed a dual-pipeline satellite framework integrating optical (Landsat, Sentinel-2),
+                                atmospheric (TROPOMI, OMI), and radar (SAR) data for EV lifecycle environmental
+                                auditing.</li>
+                            <li>Built a land analysis pipeline for detecting mining expansion, deforestation, and water
+                                depletion from satellite imagery using GIS tools and change detection algorithms.</li>
+                            <li>Developed an atmospheric monitoring pipeline tracking NO₂ and SO₂ emissions from power
+                                plants and industrial processes using Sentinel-5P TROPOMI data.</li>
+                            <li>Conducted cross-regional case study analysis (India, China, EU, USA, MENA) demonstrating
+                                how grid carbon intensity directly impacts EV sustainability outcomes.</li>
+                            <li>Replaced static LCA assumptions with dynamic satellite-based observations to produce
+                                policy-relevant environmental intelligence.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2 class="section-title">Contact <span class="gradient-text">Me</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal-left">
+                    <h3>Let's collaborate!</h3>
+                    <p>I'm open to research collaborations, ML engineering opportunities, and discussions about remote
+                        sensing, agricultural AI, or environmental monitoring projects.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
+                                    height="24">
+                                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="contact-item-label">Email</span>
+                                <span class="contact-item-value">akshatai1312@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
+                                    height="24">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                                    <circle cx="12" cy="10" r="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="contact-item-label">Location</span>
+                                <span class="contact-item-value">India</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-item-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="24"
+                                    height="24">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path
+                                        d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <span class="contact-item-label">Open To</span>
+                                <span class="contact-item-value">Research Collaborations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form reveal-right" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="formName" placeholder=" " required>
+                        <label for="formName">Your Name</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="formEmail" placeholder=" " required>
+                        <label for="formEmail">Your Email</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="formSubject" placeholder=" ">
+                        <label for="formSubject">Subject</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="formMessage" rows="5" placeholder=" " required></textarea>
+                        <label for="formMessage">Your Message</label>
+                        <div class="form-line"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit">
+                        <span>Send Message</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="footer-logo">
+                    <span class="logo-bracket">&lt;</span>AS<span class="logo-bracket">/&gt;</span>
+                </a>
+                <p class="footer-text">Designed & Built by Akshat Sharma</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/akshat131211/" target="_blank" aria-label="GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/akshat-sharma13/" target="_blank" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                            <path
+                                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                    </a>
+                    <a href="mailto:akshatai1312@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18">
+                            <rect x="2" y="4" width="20" height="16" rx="2" />
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Akshat Sharma. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
